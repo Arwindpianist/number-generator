@@ -5,15 +5,20 @@ let isRolling = false;
 
 const rollingNumber = document.querySelector("h1");
 
-document.addEventListener("keypress", event => {
-    if (event.code === "Space" && !event.repeat) { // Ensure spacebar is not being held down (prevents repeated events)
-        if (!isRolling) {
-            startRolling();
-        } else {
-            stopRolling();
-        }
+document.addEventListener("touchstart", handleTouchStart);
+document.addEventListener("touchend", handleTouchEnd);
+
+function handleTouchStart() {
+    if (!isRolling) {
+        startRolling();
+    } else {
+        stopRolling();
     }
-});
+}
+
+function handleTouchEnd(event) {
+    event.preventDefault(); // Prevent default touchend behavior (e.g., scrolling)
+}
 
 function startRolling() {
     isRolling = true;
