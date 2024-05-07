@@ -1,0 +1,55 @@
+body {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-color: black;
+    margin: 0rem;
+    overflow: hidden;
+}
+
+h1 {
+    font-family: 'Space Mono', monospace;
+    font-size: clamp(3rem, 10vw, 10rem);
+    color: white;
+    padding: 0rem clamp(1rem, 2vw, 3rem);
+    border-radius: clamp(0.4rem, 0.75vw, 1rem);
+    cursor: pointer;
+    animation: fadeIn 1s;
+}
+
+h1:hover {
+    background-color: white;
+    color: black;
+}
+
+.container {
+    position: relative;
+}
+
+@keyframes roll {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100%); }
+}
+
+.rolling-digit {
+    display: inline-block;
+    opacity: 0;
+    animation: roll 1s infinite linear;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.stopped {
+    color: #42e0a3; 
+}
