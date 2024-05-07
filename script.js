@@ -5,19 +5,14 @@ let isRolling = false;
 
 const rollingNumber = document.querySelector("h1");
 
-document.addEventListener("touchstart", handleTouchStart);
-document.addEventListener("touchend", handleTouchEnd);
+document.addEventListener("click", handleClick);
 
-function handleTouchStart() {
+function handleClick() {
     if (!isRolling) {
         startRolling();
     } else {
         stopRolling();
     }
-}
-
-function handleTouchEnd(event) {
-    event.preventDefault(); // Prevent default touchend behavior (e.g., scrolling)
 }
 
 function startRolling() {
